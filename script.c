@@ -345,6 +345,7 @@ void atualizar_evento(int num_evento, char *nome, char *data, int capacidade, fl
         fclose(file);
     }
 }
+
 void remover_evento(int num_evento)
 {
     evento eventos[MAX_SIZE];
@@ -384,34 +385,9 @@ void remover_evento(int num_evento)
         fclose(file);
     }
 }
+
 int main(int argc, char *argv[])
 {
-    // Criação dos arquivos utilizados
-    FILE *usuariosFile = fopen("usuarios.txt", "a");
-    if (usuariosFile == NULL)
-    {
-        printf("Erro na criação do arquivo usuarios.txt\n");
-        exit(1);
-    }
-    fclose(usuariosFile);
-
-    FILE *eventosFile = fopen("eventos.txt", "a");
-    if (eventosFile == NULL)
-    {
-        printf("Erro na criação do arquivo eventos.txt\n");
-        exit(1);
-    }
-    fclose(eventosFile);
-
-    FILE *eventosUsuarioFile = fopen("eventos_usuario.txt", "a");
-    if (eventosUsuarioFile == NULL)
-    {
-        printf("Erro na criação do arquivo eventos_usuario.txt\n");
-        exit(1);
-    }
-    fclose(eventosUsuarioFile);
-
-    // Restante do código
     char *action = argv[1];
 
     if (strcmp(action, "login") == 0)
@@ -483,16 +459,3 @@ int main(int argc, char *argv[])
 
     return 0;
 }
-// ``A função `main` é onde o programa começa a ser executado. Antes de processar qualquer ação, são criados os arquivos `usuarios.txt`, `eventos.txt` e `eventos_usuario.txt`, caso não existam, para garantir que os arquivos estejam disponíveis para leitura e escrita.
-
-// Em seguida, é obtida a ação a ser executada a partir do primeiro argumento passado para o programa. Dependendo da ação, os argumentos adicionais são lidos e passados para as funções correspondentes.
-
-// - Se a ação for "login", é feita a chamada para a função `realizarLogin` com os argumentos de login e senha.
-// - Se a ação for "cadastrar", é feita a chamada para a função `cadastro` com os argumentos de nome, login, senha, email e telefone.
-// - Se a ação for "participar", é feita a chamada para a função `adicionar_evento_usuario` com os argumentos de login e número do evento.
-// - Se a ação for "adicionar", é feita a chamada para a função `adicionar_evento` com os argumentos de nome, data, capacidade, valor e local.
-// - Se a ação for "editar", é feita a chamada para a função `atualizar_evento` com os argumentos de número do evento, nome, data, capacidade, valor e local.
-// - Se a ação for "remover", é feita a chamada para a função `remover_evento` com o argumento de número do evento.
-// - Caso contrário, é exibida a mensagem "Ação inválida".
-
-// Por fim, o programa retorna 0 para indicar que foi executado sem erros.
