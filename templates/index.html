@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Software de Gerenciamento de Eventos</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./style.css') }}">
+</head>
+<body>
+  <h1 class="titulo_fundo">SIGAV - Sistema Integrado Gratuito Agendador de Eventos</h1>
+  <div class="fundo"></div>
+  <div class="divMaior">
+    <div class="divcard1">
+      <button id="button">Detalhes</button>
+    </div>
+    <div class="divcard2">
+      <button id="button">Detalhes</button>
+    </div>
+    <div class="divcard3">
+      <button id="button">Detalhes</button>
+    </div>
+  </div>
+
+  <main>
+    <section>
+      <div class="container">
+        <h2>Criar Evento</h2>
+        <form id="campos" action="/adicionar" method="post">
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" name="nome" required>
+
+          <label for="data">Data:</label>
+          <input type="text" id="data" name="data" required>
+
+          <label for="capacidade">Capacidade:</label>
+          <input type="text" id="capacidade" name="capacidade" required>
+
+          <label for="valor">Valor:</label>
+          <input type="text" id="valor" name="valor" required>
+
+          <label for="local">Local:</label>
+          <input type="text" id="local" name="local" required>
+          <br>
+          <div class="button">
+            <button id="botao-criar" type="submit">Criar</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <h2>Eventos Criados</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Data</th>
+          <th>Capacidade</th>
+          <th>Valor</th>
+          <th>Local</th>
+          <th>Funções</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for evento in eventos %}
+        <tr>
+          <td>{{ evento.nome }}</td>
+          <td>{{ evento.data }}</td>
+          <td>{{ evento.capacidade }}</td>
+          <td>{{ evento.valor }}</td>
+          <td>{{ evento.local }}</td>
+          <td>
+            <form action="/editar" method="post">
+              <input type="hidden" name="num_evento" value="{{ loop.index }}">
+              <button type="submit">Editar</button>
+            </f orm>
+            <form action="/remover" method="post">
+              <input type="hidden" name="num_evento" value="{{ loop.index }}">
+              <button type="submit">Deletar</button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+      
+    </table>
+  </main>
+
+  <footer>
+    <p>Software de Gerenciamento de Eventos &copy; 2023</p>
+  </footer>
+</body>
+</html>

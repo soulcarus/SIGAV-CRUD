@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Comprovante de Inscrição</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 0;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 36px;
+      color: #333;
+    }
+    .header p {
+      margin: 0;
+      font-size: 18px;
+      color: #777;
+    }
+    .event-info {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    .event-info th,
+    .event-info td {
+      text-align: left;
+      padding: 8px;
+    }
+    .event-info th {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .event-info tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    .footer {
+      text-align: center;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Comprovante de Inscrição</h1>
+      <p>Você está inscrito nos seguintes eventos:</p>
+    </div>
+
+    {% for evento in eventos %}
+        <h2>{{ evento.nome }}</h2>
+        <table class="event-info">
+          <tr>
+            <th>Data</th>
+            <td>{{ evento.data }}</td>
+          </tr>
+          <tr>
+            <th>Local</th>
+            <td>{{ evento.local }}</td>
+          </tr>
+          <tr>
+            <th>Valor</th>
+            <td>{{ evento.valor }}</td>
+          </tr>
+        </table>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
+        {% endfor %}
+    
+    <p>Obrigado por se inscrever nos eventos! Estamos ansiosos para vê-lo lá.</p>
+
+    <div class="footer">
+      <p>Software de Gerenciamento de Eventos © 2023</p>
+    </div>
+  </div>  
+</body>
+</html>
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Editar Evento</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./style-editar.css') }}">
+</head>
+
+<body>
+  <header>
+    <h1>SIGAV - Sistema Integrado Gratuito Agendador de Eventos</h1>
+    <p>Sua ferramenta Número 1 para controle de eventos</p>
+  </header>
+  <div class="conteudo">
+    <div class="info">
+      <h2>Informações do Evento</h2>
+      <p>Caso deseje manter alguma descrição, basta não alterar o campo</p>
+    </div>
+      <div class="box">
+        <form id="campos" action="/atualizar" method="post">
+          <input type="hidden" name="num_evento" value="{{ evento.num_evento }}">
+
+          <label id="texto" for="nome">Nome</label> <br>
+          <input class="campo" type="text" id="nome" name="nome" value="{{ evento.nome }}" required>
+          <br>
+          <label id="texto" for="data">Data</label><br>
+          <input class="campo" type="text" id="text" name="data" value="{{ evento.data }}" required>
+          <br>
+          <label id="texto" for="capacidade">Capacidade</label><br>
+          <input class="campo" type="text" id="capacidade" name="capacidade" value="{{ evento.capacidade }}" required>
+          <br>
+          <label  id="texto" for="valor">Valor</label><br>
+          <input class="campo" type="text" id="valor" name="valor" value="{{ evento.valor }}" required>
+          <br>
+          <label  id="texto" for="local">Local</label><br>
+          <input class="campo" type="text" id="local" name="local" value="{{ evento.local }}" required>
+          <br><br>
+          <button class="button" type="submit">Atualizar</button>
+        </form>
+      </div>
+  </div>
+
+</body>
+
+</html>

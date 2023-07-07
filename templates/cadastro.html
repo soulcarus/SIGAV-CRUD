@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./style-cadastro.css') }}">
+</head>
+<body>
+    <div class="page">
+        <div class="formLogin">
+        <form method="post" action="/cadastrar">
+            <h1>Cadastro</h1>
+            
+            <label for="login">Login</label>
+            <input type="login" id="login" name="login"  placeholder="Insira seu Login"  autofocus="true"  required>
+
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" name="senha"  placeholder="Insira sua senha"  required>
+
+            <label for="nome">Nome</label>
+            <input type="name" id="nome" name="nome"  placeholder="Insira seu nome"  required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email"  placeholder="Insira seu email"  required>
+
+            <label for="telefone">Telefone</label>
+            <input type="telefone" id="telefone" name="telefone"  placeholder="Insira seu telefone"  required>
+
+            <input type="submit" value="Cadastrar" class="btn" />
+
+        </form>
+    </div>
+    </div>
+    
+</body>
+</html>

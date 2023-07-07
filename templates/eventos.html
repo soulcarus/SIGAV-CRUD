@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Software de Gerenciamento de Eventos</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./style.css') }}">
+</head>
+<body>
+    <h2>Eventos Ativos</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Data</th>
+          <th>Capacidade</th>
+          <th>Valor</th>
+          <th>Local</th>
+          <th>Funções</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for evento in eventos %}
+        <tr>
+          <td>{{ evento.nome }}</td>
+          <td>{{ evento.data }}</td>
+          <td>{{ evento.capacidade }}</td>
+          <td>{{ evento.valor }}</td>
+          <td>{{ evento.local }}</td>
+          <td>
+            <form action="/participar" method="post">
+              <input type="hidden" name="num_evento" value="{{ loop.index }}">
+              <button type="submit">Inscrever</button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <h2>Eventos Ativos</h2>
+    <form action="/meu_evento" method="post">
+      <button type="submit">VER EVENTOS CADASTRADOS</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>Software de Gerenciamento de Eventos &copy; 2023</p>
+  </footer>
+</body>
+</html>
