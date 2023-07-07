@@ -9,7 +9,8 @@ O projeto foi desenvolvido para um trabalho da cadeira de Laboratório de Progra
 1. [Pré-requisitos](#prerequisites)
 2. [Construindo o projeto](#building)
 3. [Executando o projeto](#running)
-4. [Autores](#authors)
+4. [Desenvolvimento do Projeto](#functions)
+5. [Autores](#authors)
 
 ## Pré-requisitos <a name="prerequisites"></a>
 - python 3.11 ou superior [Download oficial](https://www.python.org)
