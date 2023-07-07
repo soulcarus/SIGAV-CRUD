@@ -33,7 +33,7 @@ def alt(num):
 
 def ler_eventos():
     eventos = []
-    arquivo = open('./arquivos/eventos', 'r')
+    arquivo = open('./arquivos/eventos.txt', 'r')
 
     for linha in arquivo:
         evento_data = linha.split()
