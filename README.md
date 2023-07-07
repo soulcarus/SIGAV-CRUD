@@ -39,6 +39,28 @@ No terminal será apresentado:
 - os prints dentro de funções do C não funcionam (está desabilitado o print por um método built-in de como chamamos a função pelo python)
 - será apresentado um link de onde estará ativo a aplicação
 
+## Desenvolvimento do Código <a name="functions"></a>
+Parte concluída:
+- Documentação
+- HTML &  CSS
+- Login
+- Cadastro
+- Participar de Evento
+- Ler Eventos do Usuário
+- Adicionar Evento
+- Listar Eventos
+
+To-do (corrigir ou melhorar) :
+
+- Remover Evento (corrigir, parou de remover com as alterações no lab) [limite: 08/07]
+- Alterar Evento (corrigir, parou de alterar com as alterações no lab) [limite: 08/07]
+- add atributo password html
+- add atributo date html
+- log de erro senha inválida
+- Função alterar senha
+- Permitir cadastro + 1 evento
+- Solicitar dados de ADMIN para acessar painel admin
+
 ## Autores <a name="authors"></a>
 <div style="display: flex; gap: 8px">
 
