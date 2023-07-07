@@ -6,7 +6,7 @@ app.secret_key = 'chave_secreta'
 
 def alt(num):
     eventos = []
-    arquivo = open('eventos.txt', 'r')
+    arquivo = open('./arquivos/eventos.txt', 'r')
 
     for linha in arquivo:
         evento_data = linha.split()
@@ -33,7 +33,7 @@ def alt(num):
 
 def ler_eventos():
     eventos = []
-    arquivo = open('eventos.txt', 'r')
+    arquivo = open('./arquivos/eventos', 'r')
 
     for linha in arquivo:
         evento_data = linha.split()
@@ -50,7 +50,7 @@ def ler_eventos():
 
 def ler_usuarios():
     usuarios = []
-    arquivo = open('usuarios.txt', 'r')
+    arquivo = open('./arquivos/usuarios.txt', 'r')
 
     for linha in arquivo:
         usuarios_data = linha.split()
@@ -69,7 +69,7 @@ def ler_evento_usuario(login):
     eventos_usuario = []
     
     # Abra o arquivo de eventos do usuário para leitura
-    with open("eventos_usuario.txt", "r") as file:
+    with open("./arquivos/eventos_usuario.txt", "r") as file:
         # Leia cada linha do arquivo
         for linha in file:
             # Extraia o login e o número do evento da linha

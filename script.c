@@ -27,7 +27,7 @@ FILE *file;
 // Verifica se um login já existe no arquivo "usuarios.txt"
 int verificarLogin(char *login)
 {
-    file = fopen("usuarios.txt", "r");
+    file = fopen("./arquivos/usuarios.txt", "r");
     if (file == NULL)
     {
         printf("Erro na abertura do arquivo\n");
@@ -71,7 +71,7 @@ void cadastro(char *nome, char *login, char *senha, char *email, char *telefone)
     strcpy(novo.email, email);
     strcpy(novo.telefone, telefone);
 
-    file = fopen("usuarios.txt", "a");
+    file = fopen("./arquivos/usuarios.txt", "a");
     if (file == NULL)
     {
         printf("Erro na abertura do arquivo\n");
@@ -85,7 +85,7 @@ void cadastro(char *nome, char *login, char *senha, char *email, char *telefone)
 // Verifica se as credenciais (login e senha) são válidas
 int verificar_credenciais(char *login, char *senha)
 {
-    file = fopen("usuarios.txt", "r");
+    file = fopen("./arquivos/usuarios.txt", "r");
     if (file == NULL)
     {
         printf("Erro na abertura do arquivo\n");
@@ -131,7 +131,7 @@ void participar_evento(int num_evento)
     evento eventos[MAX_SIZE];
     int num_eventos = 0;
 
-    file = fopen("eventos.txt", "r");
+    file = fopen("./arquivos/eventos.txt", "r");
     if (file == NULL)
     {
         printf("Erro na abertura do arquivo\n");
@@ -147,7 +147,7 @@ void participar_evento(int num_evento)
         printf("Número de evento inválido!\n");
     else
     {
-        file = fopen("eventos.txt", "w");
+        file = fopen("./arquivos/eventos.txt", "w");
         if (file == NULL)
         {
             printf("Erro na abertura do arquivo\n");
@@ -167,7 +167,7 @@ void participar_evento(int num_evento)
 int *ler_eventos_usuario(char *login, int *num_eventos)
 {
     // Abra o arquivo de eventos do usuário para leitura
-    FILE *file = fopen("eventos_usuario.txt", "r");
+    FILE *file = fopen("./arquivos/eventos_usuario.txt", "r");
     if (file == NULL)
     {
         printf("Erro na abertura do arquivo\n");
@@ -212,7 +212,7 @@ int *ler_eventos_usuario(char *login, int *num_eventos)
 void adicionar_evento_usuario(char *login, int num_evento)
 {
     // Crie um arquivo temporário para armazenar as alterações
-    FILE *temp = fopen("temp.txt", "w");
+    FILE *temp = fopen("./arquivos/temp.txt", "w");
     if (temp == NULL)
     {
         printf("Erro na criação do arquivo temporário\n");
@@ -220,7 +220,7 @@ void adicionar_evento_usuario(char *login, int num_evento)
     }
 
     // Abra o arquivo de eventos do usuário para leitura
-    FILE *file = fopen("eventos_usuario.txt", "r");
+    FILE *file = fopen("./arquivos/eventos_usuario.txt", "r");
     if (file == NULL)
     {
         printf("Erro na abertura do arquivo\n");
@@ -260,7 +260,7 @@ void adicionar_evento_usuario(char *login, int num_evento)
     if (!existe)
     {
         // Abra o arquivo de eventos do usuário para gravação
-        file = fopen("eventos_usuario.txt", "a");
+        file = fopen("./arquivos/eventos_usuario.txt", "a");
         if (file == NULL)
         {
             printf("Erro na abertura do arquivo\n");
@@ -286,7 +286,7 @@ void adicionar_evento(char *nome, char *data, int capacidade, float valor, char 
     novo.valor = valor;
     strcpy(novo.local, local);
 
-    file = fopen("eventos.txt", "a");
+    file = fopen("./arquivos/eventos.txt", "a");
     if (file == NULL)
     {
         printf("Erro na abertura do arquivo\n");
@@ -332,7 +332,7 @@ void atualizar_evento(int num_evento, char *nome, char *data, int capacidade, fl
 
         strcpy(atualizar->local, local);
 
-        file = fopen("eventos.txt", "w");
+        file = fopen("./arquivos/eventos.txt", "w");
         if (file == NULL)
         {
             printf("Erro na abertura do arquivo\n");
@@ -351,7 +351,7 @@ void remover_evento(int num_evento)
     evento eventos[MAX_SIZE];
     int num_eventos = 0;
 
-    file = fopen("eventos.txt", "r");
+    file = fopen("./arquivos/eventos.txt", "r");
     if (file == NULL)
     {
         printf("Erro na abertura do arquivo\n");
@@ -372,7 +372,7 @@ void remover_evento(int num_evento)
 
         num_eventos -= 1;
 
-        file = fopen("eventos.txt", "w");
+        file = fopen("./arquivos/eventos.txt", "w");
         if (file == NULL)
         {
             printf("Erro na abertura do arquivo\n");

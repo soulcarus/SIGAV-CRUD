@@ -5,7 +5,7 @@ FILE *file;
 
 int main(){
     // Criação dos arquivos utilizados
-    FILE *usuariosFile = fopen("usuarios.txt", "a");
+    FILE *usuariosFile = fopen("./arquivos/usuarios.txt", "a");
     if (usuariosFile == NULL)
     {
         printf("Erro na criação do arquivo usuarios.txt\n");
@@ -13,7 +13,7 @@ int main(){
     }
     fclose(usuariosFile);
 
-    FILE *eventosFile = fopen("eventos.txt", "a");
+    FILE *eventosFile = fopen("./arquivos/eventos.txt", "a");
     if (eventosFile == NULL)
     {
         printf("Erro na criação do arquivo eventos.txt\n");
@@ -21,7 +21,7 @@ int main(){
     }
     fclose(eventosFile);
 
-    FILE *eventosUsuarioFile = fopen("eventos_usuario.txt", "a");
+    FILE *eventosUsuarioFile = fopen("./arquivos/eventos_usuario.txt", "a");
     if (eventosUsuarioFile == NULL)
     {
         printf("Erro na criação do arquivo eventos_usuario.txt\n");
