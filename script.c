@@ -357,11 +357,11 @@ void remover_evento(int num_evento)
         exit(1);
     }
 
-    while (fscanf(file, "%s %s %d %f %s\n", eventos[num_eventos].nome, eventos[num_eventos].data, &eventos[num_eventos].capacidade, &eventos[num_eventos].valor, &eventos[num_eventos].local) != EOF)
+    while (fscanf(file, "%s %s %d %f\n", eventos[num_eventos].nome, eventos[num_eventos].data, &eventos[num_eventos].capacidade, &eventos[num_eventos].valor) != EOF)
         num_eventos += 1;
 
     fclose(file);
-    
+
     if (num_evento < 1 || num_evento > num_eventos)
         printf("Número de evento inválido!\n");
     else
@@ -379,7 +379,7 @@ void remover_evento(int num_evento)
         }
 
         for (int i = 0; i < num_eventos; i++)
-            fprintf(file, "%s %s %d %.2f %s\n", eventos[i].nome, eventos[i].data, eventos[i].capacidade, eventos[i].valor, eventos[i].local);
+            fprintf(file, "oi%s %s %d %.2f\n", eventos[i].nome, eventos[i].data, eventos[i].capacidade, eventos[i].valor);
 
         fclose(file);
     }
@@ -387,7 +387,7 @@ void remover_evento(int num_evento)
 int main(int argc, char *argv[])
 {
     // Criação dos arquivos utilizados
-    FILE *usuariosFile = fopen("usuarios.txt", "w");
+    FILE *usuariosFile = fopen("usuarios.txt", "a");
     if (usuariosFile == NULL)
     {
         printf("Erro na criação do arquivo usuarios.txt\n");
@@ -395,7 +395,7 @@ int main(int argc, char *argv[])
     }
     fclose(usuariosFile);
 
-    FILE *eventosFile = fopen("eventos.txt", "w");
+    FILE *eventosFile = fopen("eventos.txt", "a");
     if (eventosFile == NULL)
     {
         printf("Erro na criação do arquivo eventos.txt\n");
@@ -403,7 +403,7 @@ int main(int argc, char *argv[])
     }
     fclose(eventosFile);
 
-    FILE *eventosUsuarioFile = fopen("eventos_usuario.txt", "w");
+    FILE *eventosUsuarioFile = fopen("eventos_usuario.txt", "a");
     if (eventosUsuarioFile == NULL)
     {
         printf("Erro na criação do arquivo eventos_usuario.txt\n");
