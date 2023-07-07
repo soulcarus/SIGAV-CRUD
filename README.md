@@ -68,7 +68,7 @@ To-do (corrigir ou melhorar) :
 <div style="display: flex; gap: 8px">
 
   <img src="./collaborators/icaro.png" width="128" height="128"/>
-  <img src="./collaborators/ylana.jpeg" width="128" height="128"/>
+  <img src="./colaboradores/ylana.jpeg" width="128" height="128"/>
   <img src="./collaborators/maju.png" width="128" height="128"/>
   <img src="./collaborators/zaca.png" width="128" height="128"/>
 
