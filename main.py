@@ -122,10 +122,12 @@ def cadastrar():
 
     usuarios = ler_usuarios()
     for usuario in usuarios:
-        if login not in usuario:
-            subprocess.Popen(['./script', 'cadastrar', login, senha, nome, email, telefone]).communicate()
-            return redirect('/')
-    return 'falhou'
+        if login == usuario['login']:
+            return 'usuario existente'
+    
+    subprocess.Popen(['./script', 'cadastrar', login, senha, nome, email, telefone]).communicate()
+    return redirect('/')
+
 
 @app.route('/index', methods=['POST'])
 def index():
@@ -168,9 +170,11 @@ def adicionar():
     valor = request.form['valor']
     local = request.form['local']
 
-    subprocess.Popen(['./script', 'adicionar', nome, data, capacidade, valor, local], stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True).communicate()
+    subprocess.Popen(['./script', 'adicionar', nome, data, capacidade, valor, local]).communicate()
 
-    return redirect('/')
+    eventos = ler_eventos()
+    
+    return render_template('index.html', eventos=eventos)
 
 @app.route('/editar', methods=['POST'])
 def editar():
@@ -191,15 +195,23 @@ def atualizar():
 
     subprocess.Popen(['./script', 'editar', num_evento, nome, data, capacidade, valor, local]).communicate()
 
-    return redirect('/')
+    eventos = ler_eventos()
+    
+    return render_template('index.html', eventos=eventos)
 
 @app.route('/remover', methods=['POST'])
 def remover():
     num_evento = request.form['num_evento']
 
-    subprocess.Popen(['./script', 'remover', num_evento]).communicate()
+    
+    
+    eventos = ler_eventos()
 
-    return redirect('/')
+    subprocess.Popen(['./script', 'remover', num_evento]).communicate()
+    
+    eventos = ler_eventos()
+    
+    return render_template('index.html', eventos=eventos)
 
 if __name__ == '__main__':
     app.run(port=8000)
