@@ -24,6 +24,7 @@ $ cd SIGAV_CRUD
 ```
 
 ## Executando o projeto <a name="running"></a>
+ATENÇÃO! NAO COLOCAR DADOS STRING NO LUGAR DE VALORES NUMERICOS e NAO PREENCHER CAMPOS COM ESPAÇOS VAZIOS ENTRE PALAVRAS, USAR ' _ '
 ```bash
 $ gcc -o teste prerequisites.c && ./teste
 $ gcc -o script script.c && ./script
@@ -55,6 +56,7 @@ To-do (corrigir ou melhorar) :
 
 - Remover Evento (corrigir, parou de remover com as alterações no lab) [limite: 08/07]
 - Alterar Evento (corrigir, parou de alterar com as alterações no lab) [limite: 08/07]
+- permitir inserir dados com espaço
 - add atributo password html
 - add atributo date html
 - log de erro senha inválida
