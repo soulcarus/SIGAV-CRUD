@@ -24,6 +24,7 @@ $ cd SIGAV_CRUD
 
 ## Executando o projeto <a name="running"></a>
 ```bash
+$ gcc -o teste prerequisites.c && ./teste
 $ gcc -o script script.c && ./script
 $ gcc -o script script.c && python3 main.py
 ```
